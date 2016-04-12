@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Infinite Scroller</title>
+	<link rel="stylesheet" href="">
 </head>
 <body>
 	
