@@ -1,6 +1,6 @@
 <?php
 
-class ExamplesController extends \BaseController {
+class PostsController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -8,19 +8,9 @@ class ExamplesController extends \BaseController {
 	 * @return Response
 	 */
 	public function index()
-	{
-		$rand = mt_rand(1,6);
-		return View::make('example.rolldice');
-	}
-
-	public function rolldice($guess)
-	{
-		$rand = mt_rand(1,6);
-		$data = [
-			'rand'  => $rand,
-			'guess' => $guess
-		];
-		return View::make('example.rolldice')->with($data);
+	{	
+		$posts = Post::all();
+		return View::make('posts.index')->with('posts', $posts);
 	}
 
 
@@ -31,7 +21,7 @@ class ExamplesController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('posts.create');
 	}
 
 
@@ -42,7 +32,19 @@ class ExamplesController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$validator = Validator::Make(Input::all(), Post::$rules);
+		if ($validator->fails()) {
+			// validation fails, redirect to the post/create page
+
+			return Redirect::back()->withInput()->withErrors($validator);
+		} else {
+			$post = new Post();
+			$post->title = Input::get('title');
+			$post->body = Input::get('body');
+			$post->save();
+
+			return Redirect::action('PostsController@create');
+		}
 	}
 
 
@@ -54,7 +56,8 @@ class ExamplesController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$post = Post::find($id);
+		return View::make($post);
 	}
 
 
@@ -66,7 +69,8 @@ class ExamplesController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$post = Post::find($id);
+		return View::make('posts.edit')->with(['post' => $post]);
 	}
 
 
@@ -92,8 +96,6 @@ class ExamplesController extends \BaseController {
 	{
 		//
 	}
-
-
 
 
 }

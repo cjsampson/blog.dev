@@ -1,6 +1,5 @@
 <?php
 
-Route::get('/', 'ExamplesController@index');
-Route::get('/projects/{name}', 'ExamplesController@projects');
-Route::get('/contact', 'ExamplesController@contact');
-Route::get('/about', 'ExamplesController@about');
+Route::get('/posts', 'PostsController@index');
+
+Route::resource('/posts', 'PostsController');
