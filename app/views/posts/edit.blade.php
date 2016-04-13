@@ -5,8 +5,15 @@
 	<p>{{{$post->title}}}</p>
 	<p>{{{$post->body}}}</p>
 
-	<form action="">
-		<input type="text" name="" id="">
-	</form>
+	{!! Form::open(['method' => 'POST', 'action' => 'PostsController@edit', 'class' => 'form-group']) !!}
+	
+	    boottext
+	
+	    <div class="btn-group pull-right">
+	        {!! Form::reset("Reset", ['class' => 'btn btn-warning']) !!}
+	        {!! Form::submit("Add", ['class' => 'btn btn-success']) !!}
+	    </div>
+	
+	{!! Form::close() !!}
 	
 @stop

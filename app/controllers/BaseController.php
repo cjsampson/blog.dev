@@ -2,6 +2,11 @@
 
 class BaseController extends Controller {
 
+	public function __construct()
+	{
+		$this->beforeFilter('csrf', ['on' => ['delete', 'put', 'post']]);
+	}
+
 	/**
 	 * Setup the layout used by the controller.
 	 *

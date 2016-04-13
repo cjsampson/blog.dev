@@ -82,7 +82,8 @@ class PostsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$validator = Validator::Make(Input::all, Post::$rules)
+		return Redirect::action('PostsController@index');
 	}
 
 
@@ -94,7 +95,7 @@ class PostsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		
 	}
 
 
