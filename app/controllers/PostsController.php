@@ -1,7 +1,7 @@
 <?php
 
-class PostsController extends \BaseController {
-
+class PostsController extends \BaseController
+{
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -9,7 +9,7 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{	
-		$posts = Post::all();
+		$posts = Post::paginate(4);
 		return View::make('posts.index')->with('posts', $posts);
 	}
 
@@ -32,19 +32,8 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validator = Validator::Make(Input::all(), Post::$rules);
-		if ($validator->fails()) {
-			// validation fails, redirect to the post/create page
-
-			return Redirect::back()->withInput()->withErrors($validator);
-		} else {
-			$post = new Post();
-			$post->title = Input::get('title');
-			$post->body = Input::get('body');
-			$post->save();
-
-			return Redirect::action('PostsController@create');
-		}
+		$post = new Post();   
+		return $this->validateAndSave();
 	}
 
 
@@ -57,7 +46,7 @@ class PostsController extends \BaseController {
 	public function show($id)
 	{
 		$post = Post::find($id);
-		return View::make($post);
+		return View::make('posts.show')->with(['post' => $post]);
 	}
 
 
@@ -82,8 +71,8 @@ class PostsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$validator = Validator::Make(Input::all, Post::$rules)
-		return Redirect::action('PostsController@index');
+		$post = Post::find($id);
+		return $this->validateAndSave();
 	}
 
 
@@ -95,7 +84,25 @@ class PostsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		
+		$post = Post::find($id);
+		if (!$post) {
+			$post->delete();
+		}
+		return Redirect::action('PostsController@index');
+	}
+
+	public function validateAndSave($post) 
+	{
+		$validator = Validator::make(Input::all(), Post::$rules);
+
+	    if ($validator->fails()) {
+	        return Redirect::back()->withInput()->withErrors($validator);
+	    } 
+		$post->title = Input::get('title');
+		$post->body = Input::get('body');
+		$post->save();
+
+		return Redirect::action('PostsController@show', $post->id);
 	}
 
 
