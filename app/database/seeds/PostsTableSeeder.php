@@ -6,12 +6,12 @@ class PostsTableSeeder extends Seeder
 {
 	public function run()
 	{
-		$faker = Faker::create();
-		foreach(range(1, 10) as $index)
+		$faker = Faker::create('en_US');
+		foreach(range(1, 20) as $index)
 		{
-			PostsTableSeeder::create([
-				'title'  => $faker->sentence(),
-				'body'	 => $faker->realText($maxNbChars = 200, $indexSize = 2),
+			Post::create([
+				'title'  => $faker->sentence(5),
+				'body'	 => $faker->paragraph(4)
 			]);
 		}
 	}

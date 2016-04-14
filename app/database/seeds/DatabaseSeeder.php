@@ -9,9 +9,9 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
+		DB::table('posts')->truncate();
 		Eloquent::unguard();
-
-		$this->call('PostTableSeeder');
+		$this->call('PostsTableSeeder');
 	}
 
 }

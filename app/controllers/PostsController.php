@@ -33,7 +33,7 @@ class PostsController extends \BaseController
 	public function store()
 	{
 		$post = new Post();   
-		return $this->validateAndSave();
+		return $this->validateAndSave($post);
 	}
 
 
@@ -46,6 +46,11 @@ class PostsController extends \BaseController
 	public function show($id)
 	{
 		$post = Post::find($id);
+		if(is_null($post)) {
+			Log::error('Invalid parameter');
+			App::abort(404);
+		}
+		
 		return View::make('posts.show')->with(['post' => $post]);
 	}
 
@@ -72,7 +77,7 @@ class PostsController extends \BaseController
 	public function update($id)
 	{
 		$post = Post::find($id);
-		return $this->validateAndSave();
+		return $this->validateAndSave($post);
 	}
 
 
@@ -86,24 +91,39 @@ class PostsController extends \BaseController
 	{
 		$post = Post::find($id);
 		if (!$post) {
-			$post->delete();
+			Session::flash('errorMessage', 'Post was not found');
+			return Redirect::action('PostsController@index');
 		}
+
+		$post->delete();
+		Session::flash('successMessage', 'The post was successfully deleted');
 		return Redirect::action('PostsController@index');
 	}
 
-	public function validateAndSave($post) 
+	protected function validateAndSave($post) 
 	{
 		$validator = Validator::make(Input::all(), Post::$rules);
 
 	    if ($validator->fails()) {
+	    	Log::error('Validation failed');
+	    	Session::flash('errorMessage', 'Unable to save post');
 	        return Redirect::back()->withInput()->withErrors($validator);
 	    } 
 		$post->title = Input::get('title');
 		$post->body = Input::get('body');
 		$post->save();
-
+		Log::info('Successful post');
+		Session::flash('successMessage', 'Post was successfully saved');
 		return Redirect::action('PostsController@show', $post->id);
 	}
 
-
+	protected function postNotFound($id) 
+	{
+		$post = Post::find($id);
+		if(is_null($post)) {
+			Log::error('Invalid parameter');
+			App::abort(404);
+		}
+		return $post;	
+	}
 }

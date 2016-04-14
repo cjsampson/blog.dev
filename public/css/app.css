@@ -1,30 +1,47 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:700);
-/*button {
-	display: inline-block;
-	margin: 0 10px 0 0;
-	padding: 10px 10px;
-	font-size: 1em;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-weight: bold;
-	appearance: none;
-	box-shadow: none;
-	border-radius: 0;
-}*/
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+body {
+  background-color: #ade4ff;
+}
+
 
 header {
+  margin-left: 10px;
+  margin-right: 10px;
   height: 200px;
-  width: 100%;
-  background-color: #0dc9f7;
+  background-color: #964e4e;
+  box-sizing: border-box;
+  border: 3px solid black;
+  border-radius: 5px;
 }
 .blogLogo {
   height: 50%;
   width: 100%;
+  display:flex;
+  flex-direction: row-reverse;
+  align-items: center;
 }
+
+.blogLogo > span {
+  font-size: 4em;
+  padding-right: 15px;
+}
+
 .blogNav {
   height: 50%;
-  background-color: #41d4cf;
+  background-color: #d59393;
 }
-nav > li {
+nav a li {
   list-style-type: none;
   display: inline-block;
 }
@@ -35,6 +52,26 @@ nav > li {
 }
 
 .singlePost {
-  background-color: #66c3bc;
+  background-color: #ffeadf;
   border-bottom: 1px solid #29313b;
+}
+
+.createButton {
+  margin-top: 15px;
+  box-sizing: border-box;
+  font-size: 1em;
+}
+
+ul.pagination li a, ul.pagination li.disabled span {
+  background-color: white;
+}
+
+ul.pagination li.active span {
+  background-color: #C4E0C4;
+}
+
+footer a li {
+  list-style-type: none;
+  display: inline-block;
+  font-size: 3em;
 }

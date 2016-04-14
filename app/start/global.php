@@ -46,10 +46,11 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 |
 */
 
-App::error(function(Exception $exception, $code)
-{
-	Log::error($exception);
-});
+// App::error(function(Exception $exception, $code)
+// {
+// 	Log::error($exception);
+// 	return Response::view('errors.500', 500);
+// });
 
 /*
 |--------------------------------------------------------------------------
@@ -77,5 +78,10 @@ App::down(function()
 | definitions instead of putting them all in the main routes file.
 |
 */
+
+App::missing(function($exception)
+{	
+    return Response::view('errors.404', [], 404);
+});
 
 require app_path().'/filters.php';
