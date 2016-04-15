@@ -24,4 +24,9 @@ class Post extends Eloquent
 	    $this->attributes['username'] = strtolower($value);
 	}
 
+	public function user()
+	{
+	    return $this->hasMany('Post');
+	}
+
 }

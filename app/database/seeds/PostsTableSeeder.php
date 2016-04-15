@@ -11,7 +11,8 @@ class PostsTableSeeder extends Seeder
 		{
 			Post::create([
 				'title'  => $faker->sentence(5),
-				'body'	 => $faker->paragraph(4)
+				'body'	 => $faker->paragraph(4),
+				'user_id' => User::all()->first()->id,
 			]);
 		}
 	}

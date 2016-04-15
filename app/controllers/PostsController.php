@@ -111,9 +111,12 @@ class PostsController extends \BaseController
 	    } 
 		$post->title = Input::get('title');
 		$post->body = Input::get('body');
+		// $post->user_id = Auth::id();
 		$post->save();
 		Log::info('Successful post');
+
 		Session::flash('successMessage', 'Post was successfully saved');
+		
 		return Redirect::action('PostsController@show', $post->id);
 	}
 

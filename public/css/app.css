@@ -19,7 +19,7 @@ header {
   margin-left: 10px;
   margin-right: 10px;
   height: 200px;
-  background-color: #964e4e;
+  background-color: #05adff;
   box-sizing: border-box;
   border: 3px solid black;
   border-radius: 5px;
@@ -39,7 +39,7 @@ header {
 
 .blogNav {
   height: 50%;
-  background-color: #d59393;
+  background-color: #2a637f;
 }
 nav a li {
   list-style-type: none;
@@ -49,11 +49,18 @@ nav a li {
 #codingJourney {
   padding-bottom: 25px;
   text-decoration: underline;
+  background-color: white;
+  display: inline-block;
 }
 
 .singlePost {
-  background-color: #ffeadf;
-  border-bottom: 1px solid #29313b;
+  background-color: #57727f;
+  
+}
+
+.loginButton {
+  float: right;
+  clear: right;
 }
 
 .createButton {
