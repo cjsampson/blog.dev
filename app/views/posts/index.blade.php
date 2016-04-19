@@ -10,6 +10,7 @@
 					<section class="singlePost">
 						<h4>{{{ $post->title }}}</h4>
 						<p>{{{ $post->body }}}</p>
+						<img src="{{{$post->image}}}" alt="someimagealternate">
 						<p>This post was created at {{{$post->created_at->format('l, F jW Y @ h:i:s A')}}}</p>
 						<p>This post was updated at {{{$post->updated_at->format('l, F jW Y @ h:i:s A')}}}</p>
 						<a href="{{{action('PostsController@show', $post->id)}}}">Edit</a>

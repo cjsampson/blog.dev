@@ -6,12 +6,27 @@ class Post extends Eloquent
 {
 	protected $table = 'posts';
 
-	protected $fillable = ['title', 'body'];
+	protected $fillable = ['title', 'body', 'image'];
 
 	public static $rules = [
 	 	'title' => 'required|max:100',
 	 	'body'	=> 'required|max:10000'
 	];
+	// public static function getAllLike($q) 
+	// {
+	// 	return self::where('title', 'LIKE', '%$q%')->
+	// 			   orWhere('body', 'LIKE', '%$q%')->
+	// 			   orderBy('created_at', 'DESC')->paginate(4);
+	// }
+
+	public function publish($image, $title, $body, $user_id) 
+	{
+		$this->image = $image;
+		$this->title = $title;
+		$this->body = $body;
+		$this->user_id = $user_id;
+	}
+
 	
 	public function getCreatedAtAttribute($value)
 	{
@@ -26,7 +41,7 @@ class Post extends Eloquent
 
 	public function user()
 	{
-	    return $this->hasMany('Post');
+	    return $this->belongsTo('User');
 	}
 
 }

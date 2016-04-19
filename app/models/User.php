@@ -25,7 +25,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	public function posts() 
 	{
-		$this-belongsTo('User');
+		return $this->hasMany('Post');
 	}
 
 	public function setPasswordAttribute($value)

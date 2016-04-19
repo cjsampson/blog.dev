@@ -2,6 +2,12 @@
 
 class PostsController extends \BaseController
 {
+
+	public function __construct()
+	{	
+		parent::__construct();
+		$this->beforeFilter('auth', ['except' => ['index', 'show']]);
+	}
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -9,8 +15,17 @@ class PostsController extends \BaseController
 	 */
 	public function index()
 	{	
-		$posts = Post::paginate(4);
+		// $posts = Post::paginate(4);
+		$query = Request::get('q');
+		$posts = $query
+					 ?  Post::where('title', 'LIKE', "%$query%")->
+							  orWhere('body', 'LIKE', "%$query%")->paginate(4) 
+					 : Post::with('user')->paginate(4);
+	
+		// ->withPosts ??
 		return View::make('posts.index')->with('posts', $posts);
+		// $posts = Post::getAllLike($q);
+		// return View::make('posts.index')->with('posts', $posts);
 	}
 
 
@@ -32,6 +47,13 @@ class PostsController extends \BaseController
 	 */
 	public function store()
 	{
+			// return [
+			// 	'path' 		=> $file->getRealPath(),
+			// 	'size' 		=> $file->getSize(),
+			// 	'mime' 		=> $file->getMimeType(),
+			// 	'name' 		=> $file->getClientOriginalName(),
+			// 	'extension' => $file->getClientOriginalExtension(),
+			// ];
 		$post = new Post();   
 		return $this->validateAndSave($post);
 	}
@@ -103,20 +125,24 @@ class PostsController extends \BaseController
 	protected function validateAndSave($post) 
 	{
 		$validator = Validator::make(Input::all(), Post::$rules);
-
 	    if ($validator->fails()) {
 	    	Log::error('Validation failed');
 	    	Session::flash('errorMessage', 'Unable to save post');
 	        return Redirect::back()->withInput()->withErrors($validator);
 	    } 
-		$post->title = Input::get('title');
-		$post->body = Input::get('body');
-		// $post->user_id = Auth::id();
+		if( Input::hasFile('image')) 
+		{
+			$file = Input::file('image');
+			$name = $file->getClientOriginalName();
+			$file->move(public_path() . '/img/blogimgs' , $name);
+	    }
+		    $post->publish('/img/blogimgs/'.$name,
+		    				Input::get('title'), Input::get('body'), Auth::id() );
 		$post->save();
 		Log::info('Successful post');
 
 		Session::flash('successMessage', 'Post was successfully saved');
-		
+
 		return Redirect::action('PostsController@show', $post->id);
 	}
 

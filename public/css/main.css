@@ -1,0 +1,64 @@
+html {
+  background-color: #8bb7cc; }
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  font-family: "Lato", sans-serif; }
+
+.site-content {
+  flex: 1; }
+
+.hoverInvert {
+  height: 50px;
+  width: 50px; }
+
+#githubsocial {
+  height: 42px;
+  width: 42px; }
+
+.blogNav {
+  display: flex;
+  justify-content: flex-end;
+  height: 125px; }
+  .blogNav li {
+    list-style-type: none;
+    padding-right: 2em; }
+
+.searchBar {
+  padding-right: 30px; }
+
+.hoverInvert:hover {
+  -webkit-filter: invert(100%); }
+
+#contactHeading {
+  text-align: center;
+  font-size: 3em;
+  font-weight: 700;
+  color: #2a637f; }
+
+#newsLetter span {
+  margin-right: auto;
+  margin-left: auto; }
+
+.form-control {
+  border-radius: 0; }
+
+.form-group label {
+  color: #2a637f; }
+
+.form-control:focus {
+  border-color: #779c48;
+  box-shadow: offset 1px 1px 1px 1px #fff; }
+
+#contactButton {
+  font-weight: 100;
+  background-color: #135c5c;
+  border-color: #135c5c;
+  border-radius: 6em; }
+
+footer {
+  margin-top: 100px; }
+
+/*# sourceMappingURL=main.css.map */

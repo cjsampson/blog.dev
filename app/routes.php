@@ -1,17 +1,29 @@
 <?php
 
 
-Route::get('profile', array('before' => 'auth.basic', function()
-{
-    // Only authenticated users may enter...
-	Route::resource('/posts', 'PostsController');
-}));
 
-Route::get('/', 'HomeController@home');
-Route::get('login', 'SessionsController@create');
-Route::get('logot', 'SessionsController@destroy');
+
+
+Route::get('posts', function()
+{
+	$query = Input::get('q');
+	return $query;
+	// return View::make('posts.index')->withPosts(Post::all());
+});
+
+Route::resource('/posts', 'PostsController');
+Route::get('/login', 'AuthController@loginView');
+Route::post('/login', 'AuthController@loginAttempt');
+Route::get('/logout', 'AuthController@doLogout');
+Route::get('/', 'MainController@index');
+
+Route::get('/about', 'MainController@about');
 Route::get('/resume', 'MainController@resume');
 Route::get('/portfolio', 'MainController@portfolio');
 Route::get('/blog', 'MainController@blog');
+Route::get('/contact', 'MainController@sendContact');
 Route::get('/contact', 'MainController@contact');
 
+Route::get('/query-test', function() {
+	$posts = Post::where('title', '=', 'Eaque sed qui molestiae rem.')->get();
+});
