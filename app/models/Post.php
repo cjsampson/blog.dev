@@ -10,7 +10,8 @@ class Post extends Eloquent
 
 	public static $rules = [
 	 	'title' => 'required|max:100',
-	 	'body'	=> 'required|max:10000'
+	 	'body'	=> 'required|max:10000',
+	 	// 'image' => 'max:50000|mimes:jpeg,png,jpg,gif'
 	];
 	// public static function getAllLike($q) 
 	// {
@@ -42,6 +43,11 @@ class Post extends Eloquent
 	public function user()
 	{
 	    return $this->belongsTo('User');
+	}
+
+	public function isAuthor(User $user) 
+	{
+		return $this->user_id == $user->id;
 	}
 
 }

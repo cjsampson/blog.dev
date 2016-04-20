@@ -16,6 +16,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $table = 'users';
 
+	const ADMIN = 1;
+	const STANDARD = 2;
+
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
@@ -31,6 +34,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	public function setPasswordAttribute($value)
 	{
 		$this->attributes['password'] = Hash::make($value);
+	}
+
+	public function isStandard() 
+	{
+		return $this->role_id = self::STANDARD;
 	}
 
 

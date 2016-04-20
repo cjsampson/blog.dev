@@ -11,6 +11,7 @@ class UsersTableSeeder extends Seeder
 		$user->last_name = $_ENV['USER_LAST'];
 		$user->email = $_ENV['USER_EMAIL'];
 		$user->password = $_ENV['USER_PASS'];
+		$user->role_id = User::ADMIN;
 		$user->save();
 
 
@@ -18,10 +19,11 @@ class UsersTableSeeder extends Seeder
 		foreach(range(2, 20) as $index)
 		{
 			User::create([
-				'first_name' => $faker->firstName,
-				'last_name'  => $faker->lastName,
-				'email'		 => $faker->email,
-				'password'   => $faker->password
+				'first_name'   => $faker->firstName,
+				'last_name'    => $faker->lastName,
+				'email'		   => $faker->email,
+				'password'     => 'password',
+				'role_id' 	   => User::STANDARD
 			]);
 		}
 	}

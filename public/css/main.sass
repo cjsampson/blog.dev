@@ -3,8 +3,10 @@ $mediumBlue: #8bb7cc
 $lightBlue: #ade4ff
 $font-stack: 'Lato', sans-serif
 
-html
-	background-color: #8bb7cc
+
+header
+	box-sizing: border-box
+	border-bottom: 3px solid #000
 
 body
 	display: flex
@@ -15,26 +17,17 @@ body
 .site-content
 	flex: 1
 
-.hoverInvert 
-	height: 50px
-	width: 50px
-
-#githubsocial 
-	height: 42px
-	width: 42px
-
 .blogNav
 	display: flex
 	justify-content: flex-end
-	height: 125px
 	li
 		list-style-type: none
 		padding-right: 2em
+		a
+			color: #ff831c
+
 .searchBar
 	padding-right: 30px
-
-.hoverInvert:hover 
-	-webkit-filter: invert(100%)
 
 #contactHeading 
 	text-align: center
@@ -46,17 +39,29 @@ body
 	span
 		margin-right: auto
 		margin-left: auto
+.authButtons
+	a
+		button
+			position: relative
+			right: 5%
+			bottom: 10px
+			background-color: #ff9c49
+			border-color: #000
 
+.pushButton
+	background-color: #ff9c49
+	border-color: #000	
 
 .form-control
 	border-radius: 0
+
 .form-group
 	label
 		color: #2a637f
 
 .form-control:focus
-	border-color: #779c48
-	box-shadow: offset 1px 1px 1px 1px #fff
+	border-color: #ff831c
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6)
 
 #contactButton
 	font-weight: 100
@@ -64,5 +69,33 @@ body
 	border-color: #135c5c
 	border-radius: 6em
 
+.btn
+	color: #fff
+	background-color: #ff9c49
+	border-color: #000
+.btn:hover
+	background-color: #fff
+	color: orange
+	font-weight: 700
+	border-color: #000
+.btn:focus
+	background-color: #fff
+	color: orange
+	font-weight: 700
+	border-color: #000
+
+// Footer 
 footer
 	margin-top: 100px
+
+.hoverInvert:hover 
+	-webkit-filter: invert(100%)
+
+.hoverInvert 
+	height: 50px
+	width: 50px
+
+#githubsocial 
+	height: 42px
+	width: 42px
+

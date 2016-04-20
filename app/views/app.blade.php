@@ -9,7 +9,7 @@
 <?php Session::put('key', 'value'); ?>
 
 @include('partials.header')	
-	
+@include('partials.sideSlide')
 
 	@if (Session::has('successMessage'))
 	    <div class="alert alert-success">{{{ Session::get('successMessage') }}}</div>
@@ -25,10 +25,7 @@
 @include('partials.footer')
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-<script>
-setTimeout(function() {
-	$('.alert').slideUp(900);
-}, 500);
+<script src="/js/main.js">
 </script>			
 </body>
 </html>

@@ -23,7 +23,7 @@
 			{{ Form::textarea('body', null, ['class' => 'form-control']) }}
 			<small class="text-danger">{{ $errors->first('body') }}</small>
 		</div>
-
+		
 		 {{ Form::submit('Push the Post!', ['class' => 'btn btn-primary']) }}
 
 	{{ Form::close() }}

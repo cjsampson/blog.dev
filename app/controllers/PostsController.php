@@ -7,6 +7,7 @@ class PostsController extends \BaseController
 	{	
 		parent::__construct();
 		$this->beforeFilter('auth', ['except' => ['index', 'show']]);
+		$this->beforeFilter('edit', ['only' => ['edit']]);
 	}
 	/**
 	 * Display a listing of the resource.
@@ -136,8 +137,12 @@ class PostsController extends \BaseController
 			$name = $file->getClientOriginalName();
 			$file->move(public_path() . '/img/blogimgs' , $name);
 	    }
+	    	// Lives columns saved lives on the Post Model
 		    $post->publish('/img/blogimgs/'.$name,
-		    				Input::get('title'), Input::get('body'), Auth::id() );
+		    				Input::get('title'), 
+		    				Input::get('body'), 
+		    				Auth::id() 
+		    );
 		$post->save();
 		Log::info('Successful post');
 

@@ -13,7 +13,7 @@ class PostsTableSeeder extends Seeder
 				'title'   => $faker->sentence(5),
 				'body'	  => $faker->paragraph(4),
 				'user_id' => User::all()->first()->id,
-				'image'   => public_path() . /img/blog_imgs/
+				'image'   => 'img/blogimgs/teal1.jpg',
 			]);
 		}
 	}

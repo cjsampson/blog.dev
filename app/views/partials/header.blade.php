@@ -1,17 +1,14 @@
 <header>
-	<div class="blogStrip">
-		
-	</div>
-	<!-- <div class="blogLogo">
-		<span>CJ Sampson</span>
-	</div> <!-- .blogLogo --> 
+
 	<nav class="blogNav">
 		<div class="searchBar">
+
 			{{ Form::open(['method' => 'get', 'action' => 'PostsController@index']) }}
 				<div class="form-group">
 					{{ Form::input('search', 'q', null, ['class' => 'form-control', 'placeholder' => 'Search my blog']) }}
 				</div>
 			{{ Form::close() }}
+			
 		</div>
 
 		<li><a href="{{{action('MainController@about')}}}" class="__blogNav--item">About</a></li>

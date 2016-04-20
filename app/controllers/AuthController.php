@@ -8,7 +8,7 @@ class AuthController extends \BaseController {
 	}
 
 	public function loginAttempt()
-	{
+	{ 
 		if (Auth::attempt([
 			'email' => Input::get('email'), 
 			'password' => Input::get('password')
