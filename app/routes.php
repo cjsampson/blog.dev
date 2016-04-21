@@ -16,7 +16,7 @@ Route::get('/login', 'AuthController@loginView');
 Route::post('/login', 'AuthController@loginAttempt');
 Route::get('/logout', 'AuthController@doLogout');
 Route::get('/', 'MainController@index');
-
+Route::resource('/workflow', 'WorkflowController');
 Route::get('/about', 'MainController@about');
 Route::get('/resume', 'MainController@resume');
 Route::get('/portfolio', 'MainController@portfolio');
