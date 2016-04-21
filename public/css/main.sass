@@ -4,27 +4,28 @@ $lightBlue: #ade4ff
 $font-stack: 'Lato', sans-serif
 
 
-header
-	box-sizing: border-box
-	border-bottom: 3px solid #000
-
-body
-	display: flex
-	min-height: 100vh
-	flex-direction: column
+html, body, .row, nav, .verticalNav2
+	height: 100%
 	font-family: $font-stack
 
-.site-content
+.verticalNav
+	width: 20%
+	height: 100%
+	background-color: #f99f54
+	display: flex
+	flex-direction: column
+	align-items: center
+.navItems
+	display: flex
+	flex: 3
+.footerIcons
 	flex: 1
 
 .blogNav
-	display: flex
-	justify-content: flex-end
 	li
 		list-style-type: none
-		padding-right: 2em
 		a
-			color: #ff831c
+			color: black
 
 .searchBar
 	padding-right: 30px
@@ -95,7 +96,8 @@ footer
 	height: 50px
 	width: 50px
 
-#githubsocial 
-	height: 42px
-	width: 42px
-
+footer
+	a
+		i
+			padding-right: 10px
+			color: black

@@ -7,9 +7,19 @@
 <body>
 
 <?php Session::put('key', 'value'); ?>
+<div class="row">
 
-@include('partials.header')	
-@include('partials.sideSlide')
+	<nav class="col-md-3 verticalNav">
+		
+		<div class="navItems">
+			@include('partials.header')	
+		</div> <!-- .navItems -->
+
+		<div class="footerIcons">
+			@include('partials.footer')
+		</div> <!-- .footerIcons -->
+
+	</nav> <!-- .col-md-3.verticalNav -->
 
 	@if (Session::has('successMessage'))
 	    <div class="alert alert-success">{{{ Session::get('successMessage') }}}</div>
@@ -18,12 +28,23 @@
 	    <div class="alert alert-danger">{{{ Session::get('errorMessage') }}}</div>
 	@endif
 
-	<div class="container site-content">
-		@yield('content')
+	<div class="col-md-8">
+			<div class="searchBar">
+			{{ Form::open(['method' => 'get', 'action' => 'PostsController@index']) }}
+				<div class="form-group">
+					{{ Form::input('search', 'q', null, ['class' => 'form-control', 'placeholder' => 'Search my blog']) }}
+				</div> <!-- .form-group -->
+			{{ Form::close() }}
+		</div> <!-- .searchBar -->
+		<div class="container site-content">
+			@yield('content')
+		</div>
 	</div>
 
-@include('partials.footer')
 
+@include('partials.sideSlide')
+</div>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script src="/js/main.js">
 </script>			
