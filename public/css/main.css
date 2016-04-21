@@ -1,7 +1,3 @@
-body, html {
-  height: 100%;
-}
-
 header {
   box-sizing: border-box;
   border-bottom: 3px solid #000; }
