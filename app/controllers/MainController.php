@@ -17,9 +17,9 @@ class MainController extends \BaseController {
 		return View::make('sections.resume');
 	}
 
-	public function portfolio() 
+	public function projects() 
 	{
-		return View::make('sections.portfolio');
+		return View::make('sections.projects');
 	}
 
 	public function blog() 

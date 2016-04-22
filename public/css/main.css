@@ -16,6 +16,13 @@ html, body, .row, nav, .verticalNav2 {
 
 .navHeader {
   flex: 1; }
+  .navHeader a {
+    transition: color 0.5s ease-in-out;
+    color: black;
+    padding: 7px; }
+
+.navHeader a:hover {
+  color: white; }
 
 .navItems {
   display: flex;
@@ -23,7 +30,7 @@ html, body, .row, nav, .verticalNav2 {
   align-items: flex-end;
   flex: 2;
   box-sizing: border-box;
-  padding-bottom: 6 0px;
+  padding-bottom: 80px;
   font-weight: 800; }
 
 .footerIcons {
@@ -35,18 +42,28 @@ html, body, .row, nav, .verticalNav2 {
 
 .blogNav li {
   list-style-type: none;
-  padding-bottom: 10px; }
+  padding: 10px; }
   .blogNav li a {
-    color: black; }
+    transition: color 0.3s ease-in-out;
+    color: black;
+    padding: 10px; }
 
-.searchBar {
-  padding-right: 30px; }
+.blogNav li a:hover {
+  color: white; }
+
+.singlePost img {
+  width: 100%;
+  height: auto; }
+
+.contactForm {
+  border-top: 5px solid #ff9c49;
+  margin-top: 75px; }
 
 #contactHeading {
   text-align: center;
   font-size: 3em;
   font-weight: 700;
-  color: #2a637f; }
+  color: #ff9c49; }
 
 #newsLetter span {
   margin-right: auto;
@@ -79,8 +96,8 @@ html, body, .row, nav, .verticalNav2 {
 
 #contactButton {
   font-weight: 100;
-  background-color: #135c5c;
-  border-color: #135c5c;
+  background-color: #ff9c49;
+  border-color: #ff9c49;
   border-radius: 6em; }
 
 .btn {
@@ -88,30 +105,20 @@ html, body, .row, nav, .verticalNav2 {
   background-color: #ff9c49;
   border-color: #000; }
 
-.btn:hover {
-  background-color: #fff;
-  color: orange;
-  font-weight: 700;
-  border-color: #000; }
-
 .btn:focus {
   background-color: #fff;
   color: orange;
-  font-weight: 700;
-  border-color: #000; }
+  border-color: none; }
 
-footer {
-  margin-top: 100px; }
-
-.hoverInvert:hover {
-  -webkit-filter: invert(100%); }
-
-.hoverInvert {
-  height: 50px;
-  width: 50px; }
+button:focus {
+  border-color: none; }
 
 footer a i {
-  padding-right: 10px;
-  color: black; }
+  padding: 10px;
+  color: black;
+  transition: color 0.5s ease-in-out; }
+
+footer a i:hover {
+  color: white; }
 
 /*# sourceMappingURL=main.css.map */

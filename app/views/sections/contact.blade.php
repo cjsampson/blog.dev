@@ -3,7 +3,7 @@
 @section('content')
 
 	
-	<div class="col-md-10 col-offset-2">
+	<div class="col-md-6 col-md-offset-2 contactForm">
 	<h3 id="contactHeading">Get in Touch</h3>
 		
 		{{ Form::open(['action' => 'post', 'action' => 'MainController@sendContact']) }}
@@ -39,7 +39,7 @@
 			    </div>
 			    <small class="text-danger">{{ $errors->first('newsletter') }}</small>
 			</div>
-			<div class="btn btn-group">
+			<div class="btn btn-group pull-right">
 				{{ Form::submit('Send Your Info', ['class' => 'btn btn-primary', 'id' => 'contactButton']) }}
 			</div>
 		{{ Form::close() }}

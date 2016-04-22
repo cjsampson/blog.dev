@@ -15,9 +15,10 @@ Route::get('posts', function()
 Route::get('/', 'MainController@index');
 Route::get('/about', 'MainController@about');
 Route::get('/resume', 'MainController@resume');
-Route::get('/portfolio', 'MainController@portfolio');
+Route::get('/portfolio', 'MainController@projects');
 Route::get('/blog', 'MainController@blog');
 Route::get('/contact', 'MainController@contact');
+Route::post('/contact', 'MainController@sendContact');
 
 // Login routes
 Route::get('/login', 'AuthController@loginView');
