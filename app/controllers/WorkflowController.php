@@ -21,7 +21,7 @@ class WorkflowController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('workflow.create');
 	}
 
 

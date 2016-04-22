@@ -136,7 +136,7 @@ class PostsController extends \BaseController
 			$file = Input::file('image');
 			$name = $file->getClientOriginalName();
 			$file->move(public_path() . '/img/blogimgs' , $name);
-	    }
+	    
 	    	// Lives columns saved lives on the Post Model
 		    $post->publish('/img/blogimgs/'.$name,
 		    				Input::get('title'), 
@@ -144,6 +144,7 @@ class PostsController extends \BaseController
 		    				Auth::id() 
 		    );
 		$post->save();
+		}
 		Log::info('Successful post');
 
 		Session::flash('successMessage', 'Post was successfully saved');

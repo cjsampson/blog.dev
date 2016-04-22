@@ -14,4 +14,14 @@
 
 	@endforeach
 
+	@if(Auth::check())
+		<div class="row" id="createButton">
+			<div class="col-md-8">
+				<a href="{{{action('WorkflowController@create')}}}">
+					<button class="btn btn-success createButton pull-right">Share Something</button>
+				</a>
+			</div>
+		</div> <!-- .row -->
+	@endif
+
 @stop

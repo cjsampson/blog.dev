@@ -9,21 +9,40 @@ html, body, .row, nav, .verticalNav2
 	font-family: $font-stack
 
 .verticalNav
+	position: fixed
 	width: 20%
 	height: 100%
 	background-color: #f99f54
 	display: flex
 	flex-direction: column
 	align-items: center
+	align-content: center
+	justify-content: center
+	box-sizing: border-box
+
+.navHeader
+	flex: 1
+
 .navItems
 	display: flex
-	flex: 3
+	justify-content: flex-end
+	align-items: flex-end
+	flex: 2
+	box-sizing: border-box
+	padding-bottom: 6	0px
+	font-weight: 800
+
 .footerIcons
+	display: flex
 	flex: 1
+	justify-content: flex-end
+	align-items: flex-end
+	padding-bottom: 10px
 
 .blogNav
 	li
 		list-style-type: none
+		padding-bottom: 10px
 		a
 			color: black
 
@@ -63,6 +82,11 @@ html, body, .row, nav, .verticalNav2
 .form-control:focus
 	border-color: #ff831c
 	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6)
+
+.form-group
+	label
+		font-weight: 300
+		color: black
 
 #contactButton
 	font-weight: 100
