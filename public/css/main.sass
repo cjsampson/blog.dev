@@ -8,7 +8,7 @@ html, body, .row, nav, .verticalNav2
 	height: 100%
 	font-family: $font-stack
 
-.verticalNav
+#verticalNav
 	position: fixed
 	width: 20%
 	height: 100%
@@ -19,9 +19,11 @@ html, body, .row, nav, .verticalNav2
 	align-content: center
 	justify-content: center
 	box-sizing: border-box
+	display:none
 
 .navHeader
 	flex: 1
+	font-weight: 300
 	a
 		transition: color 0.5s ease-in-out
 		color: black
@@ -38,7 +40,7 @@ html, body, .row, nav, .verticalNav2
 	flex: 2
 	box-sizing: border-box
 	padding-bottom: 80px
-	font-weight: 800
+	font-weight: 300
 
 .footerIcons
 	display: flex
@@ -64,9 +66,21 @@ html, body, .row, nav, .verticalNav2
 .searchBar
 	
 .singlePost
-	img
-		width: 100%
-		height: auto
+	margin: 20px
+	padding: 35px 0
+	border-bottom: 3px solid #ff9c49
+	border-right: 3px solid black
+	border-left: 3px solid black
+	margin-right: 5px
+	margin-right: 5px
+
+.singlePost
+	h2
+		margin-right: 10px
+		margin-left: 10px
+		
+			
+		
 .contactForm
 	border-top: 5px solid #ff9c49
 	margin-top: 75px
@@ -139,4 +153,5 @@ footer
 footer
 	a
 		i:hover
+			font-weight: 300
 			color: white

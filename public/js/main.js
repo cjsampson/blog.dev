@@ -6,3 +6,10 @@ $('.slideMenu .slideToggle').on('click', function(e) {
 	e.preventDefault();
 	$(this).parent().toggleClass('slideAlive');
 });
+
+
+$(function() {
+	var $verticalNav = $('#verticalNav');
+	$verticalNav.hide();
+	$verticalNav.slideDown(800);
+});

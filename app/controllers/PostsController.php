@@ -20,8 +20,8 @@ class PostsController extends \BaseController
 		$query = Request::get('q');
 		$posts = $query
 					 ?  Post::where('title', 'LIKE', "%$query%")->
-							  orWhere('body', 'LIKE', "%$query%")->paginate(4) 
-					 : Post::with('user')->paginate(4);
+							  orWhere('body', 'LIKE', "%$query%")->paginate(6) 
+					 : Post::with('user')->paginate(6);
 	
 		// ->withPosts ??
 		return View::make('posts.index')->with('posts', $posts);
@@ -135,7 +135,7 @@ class PostsController extends \BaseController
 		{
 			$file = Input::file('image');
 			$name = $file->getClientOriginalName();
-			$file->move(public_path() . '/img/blogimgs' , $name);
+			$file->move(public_path() . '/img/blogimgs/' , $name);
 	    
 	    	// Lives columns saved lives on the Post Model
 		    $post->publish('/img/blogimgs/'.$name,

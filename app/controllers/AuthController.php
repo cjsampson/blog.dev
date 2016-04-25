@@ -9,10 +9,9 @@ class AuthController extends \BaseController {
 
 	public function loginAttempt()
 	{ 
-		if (Auth::attempt([
-			'email' => Input::get('email'), 
-			'password' => Input::get('password')
-			])) {
+		if (Auth::attempt(['email'    => Input::get('email'), 
+						   'password' => Input::get('password') 
+		])) {
 			return Redirect::intended('/posts');
 		} else {
 			Session::flash('errorMessage', 'Your input fields were wrong');
