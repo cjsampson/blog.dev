@@ -45,12 +45,16 @@ html, body, .row, nav, .verticalNav2 {
   list-style-type: none;
   padding: 10px; }
   .blogNav li a {
-    transition: color 0.3s ease-in-out;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    -webkit-transform: scale(1);
     color: black;
     padding: 10px; }
 
 .blogNav li a:hover {
-  color: white; }
+  z-index: 2;
+  color: white;
+  -webkit-transform: scale(1.2, 1.2); }
 
 .singlePost {
   margin: 20px;
@@ -79,17 +83,6 @@ html, body, .row, nav, .verticalNav2 {
   margin-right: auto;
   margin-left: auto; }
 
-.authButtons a button {
-  position: relative;
-  right: 5%;
-  bottom: 10px;
-  background-color: #ff9c49;
-  border-color: #000; }
-
-.pushButton {
-  background-color: #ff9c49;
-  border-color: #000; }
-
 .form-control {
   border-radius: 0; }
 
@@ -104,25 +97,6 @@ html, body, .row, nav, .verticalNav2 {
   font-weight: 300;
   color: black; }
 
-#contactButton {
-  font-weight: 100;
-  background-color: #ff9c49;
-  border-color: #ff9c49;
-  border-radius: 6em; }
-
-.btn {
-  color: #fff;
-  background-color: #ff9c49;
-  border-color: #000; }
-
-.btn:focus {
-  background-color: #fff;
-  color: orange;
-  border-color: none; }
-
-button:focus {
-  border-color: none; }
-
 footer a i {
   padding: 10px;
   color: black;
@@ -131,5 +105,34 @@ footer a i {
 footer a i:hover {
   font-weight: 300;
   color: white; }
+
+.btn {
+  padding: 14px 24px;
+  border: 0 none;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase; }
+
+.btn {
+  padding: 14px 24px;
+  border: 0 none;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase; }
+  .btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none; }
+
+.btn-primary {
+  background: #0099cc;
+  color: #ffffff; }
+  .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
+    background: #33a6cc; }
+
+.open > .dropdown-toggle.btn-primary {
+  background: #33a6cc; }
+
+.btn-primary:active, .btn-primary.active {
+  background: #007299;
+  box-shadow: none; }
 
 /*# sourceMappingURL=main.css.map */

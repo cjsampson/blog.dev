@@ -13,3 +13,7 @@ $(function() {
 	$verticalNav.hide();
 	$verticalNav.slideDown(800);
 });
+
+// $('.__blogNav--item a').on('hover', function() {
+// 	$('.__blogNav--item a').css({'font-size': '1.25em'});
+// });
