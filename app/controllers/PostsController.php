@@ -19,8 +19,8 @@ class PostsController extends \BaseController
 		// $posts = Post::paginate(4);
 		$query = Request::get('q');
 		$posts = $query
-					 ?  Post::where('title', 'LIKE', "%$query%")->
-							  orWhere('body', 'LIKE', "%$query%")->paginate(6) 
+					 ? Post::where('title', 'LIKE', "%$query%")->
+							 orWhere('body', 'LIKE', "%$query%")->paginate(6) 
 					 : Post::with('user')->paginate(6);
 	
 		// ->withPosts ??
