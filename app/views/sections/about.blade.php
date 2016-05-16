@@ -2,6 +2,6 @@
 
 @section('content')
 
-	<h2>CJ Sampson abount page</h2>
+	<h2>About Me</h2>
 
 @stop
