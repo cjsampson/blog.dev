@@ -6,6 +6,7 @@
 </head>
 <body>
 	<div class="flexContainer">
+	
 		<div class="navigationSidebar">
 			@include('partials.header')
 			@include('partials.footer')

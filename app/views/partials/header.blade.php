@@ -1,4 +1,4 @@
-<nav class="blogNav">		
+<nav class="navContainer">		
 	<li><a href="{{{action('MainController@about')}}}" class="__blogNav--item">About</a></li>
 	<li><a href="{{{action('MainController@resume')}}}" class="__blogNav--item">Resume</a></li>
 	<li><a href="{{{action('MainController@projects')}}}" class="__blogNav--item">Projects</a></li>
