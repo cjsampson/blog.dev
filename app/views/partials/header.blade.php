@@ -1,7 +1,7 @@
 <nav class="navContainer">		
-	<li><a href="{{{action('MainController@about')}}}" class="__blogNav--item">About</a></li>
-	<li><a href="{{{action('MainController@resume')}}}" class="__blogNav--item">Resume</a></li>
-	<li><a href="{{{action('MainController@projects')}}}" class="__blogNav--item">Projects</a></li>
-	<li><a href="{{{action('PostsController@index')}}}" class="__blogNav--item">Blog</a></li>
-	<li><a href="{{{action('MainController@contact')}}}" class="__blogNav--item">Contact</a></li>
+	<li class="navItem"><a href="{{{action('MainController@about')}}}">About</a></li>
+	<li class="navItem"><a href="{{{action('MainController@resume')}}}">Resume</a></li>
+	<li class="navItem"><a href="{{{action('MainController@projects')}}}">Projects</a></li>
+	<li class="navItem"><a href="{{{action('PostsController@index')}}}">Blog</a></li>
+	<li class="navItem"><a href="{{{action('MainController@contact')}}}">Contact</a></li>
 </nav> <!-- nav.blogNav -->

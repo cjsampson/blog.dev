@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
 	<title>Blog</title>
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700' rel='stylesheet' type='text/css'>
  	@include('partials.head')
 </head>
 <body>
 	<div class="flexContainer">
-	
+
 		<div class="navigationSidebar">
 			@include('partials.header')
 			@include('partials.footer')
@@ -16,7 +17,6 @@
 
 			<?php Session::put('key', 'value'); ?>
 
-			<h3 class="navHeader"><a href="{{{action('MainController@index')}}}">CJ Sampson</a></h3>
 
 			{{ Form::open(['method' => 'get', 'action' => 'PostsController@index', 'class' => 'formSearch']) }}
 					{{ Form::input('search', 'q', null, ['placeholder' => 'Search something in particular']) }}
