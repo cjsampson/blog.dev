@@ -16,8 +16,8 @@ html, body
 /* NAV */
 /* .flexContainer Child */
 .navigationSidebar
-	min-width: 300px
-	height: 100%
+	position: fixed
+	width: 300px
 	border: 1px solid green
 	display: flex
 	flex-direction: column
@@ -25,11 +25,11 @@ html, body
 
 /* .navigationSidebar Child */
 .navContainer
-	flex-basis: 90%
+	flex-basis: 63%
 	width: 100%
 	display: flex
 	flex-direction: column
-	justify-content: center
+	justify-content: flex-end
 	align-items: center
 	list-style-type: none
 
@@ -39,11 +39,15 @@ html, body
 	a
 		text-decoration: none
 		color: black
+		transition: color .2s ease-in
+	a:hover
+		color: white
+
 
 /* .navigationSidebar Child */
 .footerContainer
 	box-sizing: border-box
-	flex-basis: 10%
+	flex-basis: 37%
 	width: 100%
 	display: flex
 	justify-content: center
@@ -52,7 +56,9 @@ html, body
 		margin: 0 15px 35px 15px
 		i
 			color: black
-
+			transition: color .2s ease-ina
+		i:hover
+			color: white
 
 /* CONTENT */
 /* .flexContainer Child */
