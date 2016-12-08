@@ -6,12 +6,12 @@
  	@include('partials.head')
 </head>
 <body>
+	<div class="navigationSidebar">
+		@include('partials.header')
+		@include('partials.footer')
+	</div> <!-- navigationSiderbar -->
+	
 	<div class="flexContainer">
-
-		<div class="navigationSidebar">
-			@include('partials.header')
-			@include('partials.footer')
-		</div> <!-- navigationSiderbar -->
 
 		<div class="contentContainer">
 
